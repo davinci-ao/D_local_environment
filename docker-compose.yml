@@ -1,0 +1,73 @@
+version: '3.8'
+services:
+  #docker compose --env-file=.env.docker up -d 
+  
+  php:
+    build:
+      context: .
+      dockerfile: dockerfiles/php.Dockerfile
+    container_name: php
+    restart: unless-stopped
+    tty: true 
+    environment:
+      SERVICE_NAME: php
+    working_dir: /var/www
+    volumes:
+      - ${WWW_ROOT_FOLDER}:/var/www
+    networks:
+      - app-network
+
+  #MySQL Service
+  db:
+    image: yobasystems/alpine-mariadb
+    container_name: mariadb
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      SERVICE_NAME: mysql
+    volumes:
+      - ${MYSQL_SAVE_FOLDER}:/var/lib/mysql
+    networks:
+      - app-network
+
+  #Nginx Service
+  webserver:
+    build:
+      context: .
+      dockerfile: dockerfiles/nginx.Dockerfile
+    container_name: nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8001:8000"
+    expose:
+      - "8001"
+    volumes:
+      - ${WWW_ROOT_FOLDER}:/var/www
+    networks:
+      - app-network
+
+  #phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    expose:
+      - "8080"
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
