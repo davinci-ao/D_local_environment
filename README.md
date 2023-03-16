@@ -3,7 +3,7 @@ A Docker compose structure to setup a customisable default local persistent envi
 
 ## Installation
 - Make sure you have docker AND docker compose installed (easiest way to do this is to install docker desktop - [Download Docker Desktop](https://www.docker.com/products/docker-desktop) )
-- Open the file .end.docker file and edit "WWW_ROOT_FOLDER" AND "MYSQL_SAVE_FOLDER" lines to represent your wishes for storage
+- Open the file .end.docker file (this is a hidden file - enable "view hidden files" in your file explorer) and edit "WWW_ROOT_FOLDER" AND "MYSQL_SAVE_FOLDER" lines to represent your wishes for storage
 - Run the following command: docker compose --env-file=.env.docker up -d
 - Let the process finish setting up your environment
 - Start coding!
