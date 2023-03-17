@@ -31,7 +31,7 @@ This installation uses the following ports for it's services. these ports cannot
 | 8080 | PHPMyAdmin |
 
 
-## Useful commands for setting up or managing your docker environment the environment
+## Useful commands for setting up or managing your docker environment
 
 |  Title | Description  | When to run?  |  Command |
 |---|---|---|---|
