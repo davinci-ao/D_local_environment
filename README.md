@@ -32,6 +32,7 @@ This installation uses the following ports for it's services. these ports cannot
 
 
 ## Useful commands for setting up or managing your docker environment
+Make sure to run these commands in the folder where you cloned this repo!!!
 
 |  Title | Description  | When to run?  |  Command |
 |---|---|---|---|
