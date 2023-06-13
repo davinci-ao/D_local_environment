@@ -1,4 +1,4 @@
-FROM php:8.1.3-fpm-buster as php
+FROM php:8.1.7-fpm-buster as php
 
 # Set working directory
 WORKDIR /var/www
