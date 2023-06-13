@@ -65,6 +65,18 @@ services:
     networks:
       - app-network
 
+  #node
+  node:
+    image: node
+    container_name: node
+    restart: unless-stopped
+    tty: true
+    working_dir: /src/  
+    volumes:
+      - ${WWW_ROOT_FOLDER}:/src/
+    networks:
+      - app-network
+
 #Docker Networks
 networks:
   app-network:
