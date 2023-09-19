@@ -85,6 +85,8 @@ services:
     ports:
       - ${MAILHOG_PORT_SMTP}:1025
       - ${MAILHOG_PORT_WEBUI}:8025
+    networks:
+      - app-network
 
 #Docker Networks
 networks:
