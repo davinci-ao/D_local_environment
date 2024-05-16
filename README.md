@@ -12,7 +12,7 @@ A Docker compose structure to setup a customisable default local persistent envi
 - PHP stack
 - Nginx Webserver
 - Node stack
-- MariaDB - username = root password = mysql (default)
+- MariaDB - username = root password = mysql (default) database-servername = db
 - PHPMyAdmin - username = root password = mysql (same as Mariadb)
 - Mailhog service
 
